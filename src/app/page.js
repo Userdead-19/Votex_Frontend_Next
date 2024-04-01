@@ -15,7 +15,7 @@ export default function Component() {
   const [electionData, setElectionData] = useState(null);
   const [ElectedPersonals, setElectedPersonals] = useState({});
   const [CastedVote, setCastedVote] = useState(false);
-  const backend_url = "https://votexbackend.onrender.com";
+  const backend_url = "https:votexbackendsdk.vercel.app";
   const fetchCookie = async () => {
     try {
       const response = await api.get(`${backend_url}/api/tDihBL`);
