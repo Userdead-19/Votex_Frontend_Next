@@ -7,15 +7,18 @@ import { useState, useEffect } from "react";
 const dotenv = require("dotenv");
 dotenv.config();
 
+const api = Axios.create({
+  withCredentials: true,
+});
+
 export default function Component() {
   const [electionData, setElectionData] = useState(null);
   const [ElectedPersonals, setElectedPersonals] = useState({});
   const [CastedVote, setCastedVote] = useState(false);
+  const backend_url = "https://votexbackend.onrender.com";
   const fetchCookie = async () => {
     try {
-      const response = await Axios.get(`http://localhost:3000/api/xkMZJC`, {
-        withCredentials: true,
-      });
+      const response = await api.get(`${backend_url}/api/tDihBL`);
       setElectionData(response.data);
       console.log(response);
     } catch (error) {
@@ -25,15 +28,9 @@ export default function Component() {
 
   const castVote = async () => {
     try {
-      const response = await Axios.post(
-        `http://localhost:3000/api/xkMZJC/vote`,
-        {
-          ElectedPersonals,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await api.post(`${backend_url}/api/tDihBL/vote`, {
+        ElectedPersonals,
+      });
       setCastedVote(true);
       console.log(response);
     } catch (error) {
