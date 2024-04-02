@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CardContent, Card } from "@/components/ui/card";
 import Axios from "axios";
 import { useState, useEffect } from "react";
+import localStorage, * as localstorage from "local-storage";
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -18,13 +19,15 @@ export default function Component() {
   const backend_url = "https://votexbackend.onrender.com";
   const fetchCookie = async () => {
     try {
+      console.log(document.cookie);
       const response = await api.get(`${backend_url}/api/tDihBL`, {
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "https://votexyouvote.netlify.app/",
+          "Access-Control-Allow-Origin": "https://votex-mocha.vercel.app",
           "Access-Control-Allow-Credentials": true,
         },
       });
+      localStorage.set("cookie", response.data.cookie);
       setElectionData(response.data);
       console.log(response);
     } catch (error) {
@@ -42,8 +45,9 @@ export default function Component() {
         {
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "https://votexyouvote.netlify.app/",
+            "Access-Control-Allow-Origin": "https://votex-mocha.vercel.app",
             "Access-Control-Allow-Credentials": true,
+            cookie: localStorage.get("cookie"),
           },
         }
       );
