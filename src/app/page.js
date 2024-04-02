@@ -15,10 +15,16 @@ export default function Component() {
   const [electionData, setElectionData] = useState(null);
   const [ElectedPersonals, setElectedPersonals] = useState({});
   const [CastedVote, setCastedVote] = useState(false);
-  const backend_url = "https://vootexbackend.vercel.app";
+  const backend_url = "https://votexbackend.onrender.com";
   const fetchCookie = async () => {
     try {
-      const response = await api.get(`${backend_url}/api/tDihBL`);
+      const response = await api.get(`${backend_url}/api/tDihBL`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://votexyouvote.netlify.app/",
+          "Access-Control-Allow-Credentials": true,
+        },
+      });
       setElectionData(response.data);
       console.log(response);
     } catch (error) {
@@ -28,9 +34,19 @@ export default function Component() {
 
   const castVote = async () => {
     try {
-      const response = await api.post(`${backend_url}/api/tDihBL/vote`, {
-        ElectedPersonals,
-      });
+      const response = await api.post(
+        `${backend_url}/api/tDihBL/vote`,
+        {
+          ElectedPersonals,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://votexyouvote.netlify.app/",
+            "Access-Control-Allow-Credentials": true,
+          },
+        }
+      );
       setCastedVote(true);
       console.log(response);
     } catch (error) {
