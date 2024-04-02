@@ -10,6 +10,7 @@ dotenv.config();
 
 const api = Axios.create({
   withCredentials: true,
+  credentials: "include",
 });
 
 export default function Component() {
@@ -27,9 +28,8 @@ export default function Component() {
           "Access-Control-Allow-Credentials": true,
         },
       });
-      localStorage.set("cookie", response.data.cookie);
+
       setElectionData(response.data);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +47,6 @@ export default function Component() {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "https://votex-mocha.vercel.app",
             "Access-Control-Allow-Credentials": true,
-            cookie: localStorage.get("cookie"),
           },
         }
       );
