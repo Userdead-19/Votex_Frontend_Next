@@ -39,9 +39,7 @@ export default function Component() {
     try {
       const response = await api.post(
         `${backend_url}/api/tDihBL/vote`,
-        {
-          ElectedPersonals,
-        },
+        ElectedPersonals,
         {
           headers: {
             "Content-Type": "application/json",
