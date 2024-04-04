@@ -1,33 +1,482 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Inter:wght@100..900&family=Krona+One&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* background: linear-gradient(to right, 
+    #020607 0%,    /* Left color */
+    /* #071214 33%,   /* Middle-left color */
+    /* #0e2829 66%,   /* Middle-right color */
+    /* #123537 100%   Right color */
+    background-image: linear-gradient(#000000,#061112,#0F2D2E,#153D40);
+    background-attachment: fixed;
+};
+  
+/*body {
+  background: 
+    linear-gradient(to bottom, #020607, #020607) bottom,
+    linear-gradient(to bottom, #071214, #071214) top,
+    linear-gradient(to , #0e2829, #0e2829) top,
+    linear-gradient(to , #123537, #123537) bottom;
+  background-size: 
+    25% 2px,
+    25% 2px,
+    75% 2px,
+    100% 2px; /* Adjust the height of each color band as needed */
+  /* background-repeat: no-repeat; */
+  /* background-size: 180% 180%; */
+  /* animation: gradient-animation 18s ease infinite; */
+  /* transition: background-color 0.3s ease;  */
+/* } */
+
+
+@keyframes gradient-animation {
+  0% {
+    background-position: top; /* Left-middle */
+  }
+  50% {
+    /* Right-middle */
+  }
+  100% {
+    background-position: bottom; /* Left-middle */
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+.card {
+  display: inline-block;
+  width: 238px;
+  height: 386px;
+  padding: 20px;
+  margin-left: 102px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1.5px solid rgb(8, 8, 8);
+  border-radius: 10px;
+  /* box-shadow: 4px 8px rgba(6, 6, 6, 0.737); */
+  background-image: linear-gradient(#59A7BA,#325d67,#1d373d,#080F10);
+}
+
+.cardcontent {
+  width: 100%;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #050a0b;
+  font-weight: bold;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: x-large;
+}
+.rollno{
+  color:  #a1acad;
+  margin-bottom: 35px;
+}
+.cardcontent2 {
+  height: 100px;
+  width: 100px;
+  border: 2px solid rgb(6, 6, 6);
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  margin-top: 40px;
+  margin-left: 68px;
+  margin-bottom: 50px;
+  box-shadow:0px 3px 6px #a1acad;
+}
+
+.cardcontent3 {
+  height: 50px;
+  width: 50px;
+  border: 2px solid rgb(2, 2, 2);
+  background-color: #1b2729;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cardbtn {
+  background-image: linear-gradient(45deg,#113a23, #1C804A, #29EA83);
+  background-size: 200%;
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  padding: 1px 2px;
+  border-radius: 10px;
+  height: 64px;
+  width: 121px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  font-size: x-large;
+  font-weight: 520;
+  box-shadow: 0px 4px 8px rgba(32, 36, 35, 0.792);
+}
+
+
+.cardbtn{
+  font-family: "Inter", sans-serif;
+}
+.left-content {
+  font-weight: bold;
+  align-items: center;
+}
+
+.right-content {
+  display: inline-block;
+  float: right;
+  margin-top: 1px;
+  margin-right: 20px;
+}
+
+.cardbtn:hover {
+  background: linear-gradient(135deg, #014201, #022c1e);
+  box-shadow: 0px 8px 16px rgba(115, 212, 204, 0.6);
+  transform: scale(1.1);
+  color: white;
+}
+
+.cheading {
+  color: #228C53;
+  font-family: "Krona One", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.head1 {
+  color: #28DC7B;
+  font-family: "Krona One", sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .head1 {
+    font-size: 2.5rem; /* Adjust font size for smaller screens */
   }
+}
+
+.castvote {
+  color: rgb(0, 0, 0);
+  font-size: x-large;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 20px auto; /* Center the button horizontally */
+  width: 200px; /* Set a fixed width */
+  max-width: 100%; /* Allow button to shrink on smaller screens */
+  height: 57px;
+  background-color: #29DB7B;
+  text-decoration: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .castvote {
+    width: 80%; /* Adjust width for smaller screens */
+  }
+}
+
+
+
+.head2 {
+  margin-left: 47px;
+  color: #a1acad;
+}
+
+.castvote:hover {
+  background: linear-gradient(135deg, #006400, #033f2b);
+  box-shadow: 0px 8px 16px rgba(176, 218, 218, 0.6);
+  transform: scale(1.1);
+  color: white;
+}
+/* Animation for body background */
+/* body {
+  background: linear-gradient(135deg, #0c1c1a 0%, #122c28 33%, #122d28 66%, #0d0e0b 100%);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+} */
+/* 
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+/* Animation for card components */
+/* .card {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+  margin-left: 40px;
+  margin-top: 10px;
+  border:1px solid white;
+  border-radius: 10px;
+  box-shadow: 4px 8px rgba(66, 82, 78, 0.737);
+  background-color:transparent;
+  transition: transform 0.3s ease; /* Added transition for smooth hover effect */
+/* } */
+
+.card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
+} 
+
+/* Additional animation effects can be applied as needed */
+#category-heading{
+  font-family: "Krona One", sans-serif;
+  /* font-size: xxx-large; */
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.castvote {
+  color: rgb(0, 0, 0);
+  font-size: x-large;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 20px auto; /* Center the button horizontally */
+  width: auto; /* Allow button to adjust its width based on content */
+  max-width: 100%; /* Ensure button can shrink on smaller screens */
+  height: 57px;
+  background-color: #29DB7B;
+  text-decoration: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+.castvote span {
+  margin-right: 5px; /* Add some spacing between the word "CAST" and the background */
+}
+
+@media screen and (max-width: 768px) {
+  .castvote {
+    width: 80%; /* Adjust width for smaller screens */
+  }
+}
+body {
+  background-image: linear-gradient(#000000, #061112, #0F2D2E, #153D40);
+  background-attachment: fixed;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: top;
+  }
+  100% {
+    background-position: bottom;
+  }
+}
+
+.card {
+  display: inline-block;
+  width: 238px;
+  height: 386px;
+  padding: 20px;
+  margin-left: 102px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1.5px solid rgb(8, 8, 8);
+  border-radius: 10px;
+  background-image: linear-gradient(#59A7BA, #325d67, #1d373d, #080F10);
+  position: relative;
+}
+
+.cardcontent {
+  width: 100%;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #050a0b;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: x-large;
+}
+
+.rollno {
+  color: #a1acad;
+  margin-bottom: 35px;
+}
+
+.cardcontent2 {
+  height: 100px;
+  width: 100px;
+  border: 2px solid rgb(6, 6, 6);
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  margin-top: 40px;
+  margin-left: 68px;
+  margin-bottom: 50px;
+  box-shadow: 0px 3px 6px #a1acad;
+}
+
+.cardcontent3 {
+  height: 50px;
+  width: 50px;
+  border: 2px solid rgb(2, 2, 2);
+  background-color: #1b2729;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cardbtn {
+  background-image: linear-gradient(45deg, #113a23, #1C804A, #29EA83);
+  background-size: 200%;
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  padding: 1px 2px;
+  border-radius: 10px;
+  height: 64px;
+  width: 121px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  font-size: x-large;
+  font-weight: 520;
+  box-shadow: 0px 4px 8px rgba(32, 36, 35, 0.792);
+}
+
+.cardbtn {
+  font-family: "Inter", sans-serif;
+}
+
+.left-content {
+  font-weight: bold;
+  align-items: center;
+}
+
+.right-content {
+  display: inline-block;
+  float: right;
+  margin-top: 1px;
+  margin-right: 20px;
+}
+
+.cardbtn:hover {
+  background: linear-gradient(135deg, #014201, #022c1e);
+  box-shadow: 0px 8px 16px rgba(115, 212, 204, 0.6);
+  transform: scale(1.1);
+  color: white;
+}
+
+.cheading {
+  color: #228C53;
+  font-family: "Krona One", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.head1 {
+  color: #28DC7B;
+  font-family: "Krona One", sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .head1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* .castvote {
+  color: rgb(0, 0, 0);
+  font-size: x-large;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  max-width: 100%;
+  height: 57px;
+  background-color: #29DB7B;
+  text-decoration: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.castvote span {
+  margin-right: 7px;
+}
+
+@media screen and (max-width: 768px) {
+  .castvote {
+    width: 80%;
+  }
+}
+
+.cheading {
+  color: #228C53;
+  font-family: "Krona One", sans-serif;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cheading {
+    font-size: 1.3rem;
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover {
+  border:2px solid #04f304;
+  border-radius: 10px;
+}
+
+/*.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow 
+  animation: background-animation 5s ease infinite alternate;
+}
+
+@keyframes background-animation {
+  0% {
+    background-color: #59A7BA; /* Start color 
+  }
+  100% {
+    background-color: #080F10; /* End color 
+  }
+}*/
+.thank{
+  color: white;
 }
