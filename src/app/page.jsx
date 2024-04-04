@@ -5,6 +5,7 @@ import { CardContent, Card } from "@/components/ui/card";
 import Axios from "axios";
 import { useState, useEffect } from "react";
 import localStorage, * as localstorage from "local-storage";
+import './globals.css';
 const dotenv = require("dotenv");
 dotenv.config();
 
