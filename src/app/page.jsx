@@ -9,6 +9,7 @@ import "./globals.css"; // Import your CSS file
 </style>
 const api = Axios.create({
   withCredentials: true,
+  credentials: "include",
 });
 
 export default function Component() {
@@ -16,12 +17,18 @@ export default function Component() {
   const [ElectedPersonals, setElectedPersonals] = useState({});
   const [CastedVote, setCastedVote] = useState(false);
   const backend_url = "https://votexbackend.onrender.com";
-
   const fetchCookie = async () => {
     try {
-      const response = await api.get(`${backend_url}/api/tDihBL`);
+      console.log(document.cookie);
+      const response = await api.get(`${backend_url}/api/tDihBL`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://votex-mocha.vercel.app",
+          "Access-Control-Allow-Credentials": true,
+        },
+      });
+
       setElectionData(response.data);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -29,9 +36,17 @@ export default function Component() {
 
   const castVote = async () => {
     try {
-      const response = await api.post(`${backend_url}/api/tDihBL/vote`, {
+      const response = await api.post(
+        `${backend_url}/api/tDihBL/vote`,
         ElectedPersonals,
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://votex-mocha.vercel.app",
+            "Access-Control-Allow-Credentials": true,
+          },
+        }
+      );
       setCastedVote(true);
       console.log(response);
     } catch (error) {
