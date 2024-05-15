@@ -8,6 +8,10 @@ body {
     /* #123537 100%   Right color */
     background-image: linear-gradient(#000000,#061112,#0F2D2E,#153D40);
     background-attachment: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 };
 
 /*body {
@@ -38,6 +42,17 @@ body {
   100% {
     background-position: bottom; /* Left-middle */
   }
+  
+}
+
+.HeadingClass{
+  color: #28DC7B;
+  font-family: 'Krona One', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 5px;
 }
 
 
@@ -111,8 +126,38 @@ body {
   font-weight: 520;
   box-shadow: 0px 4px 8px rgba(32, 36, 35, 0.792);
 }
+.inputs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 14rem;
+}
 
+.inputs Input{
+  height:80px;
+  width: 60px;
+  font-size: 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background: transparent;
+  background-color:#83babf ;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(46, 71, 64, 0.792);
+}
+.submit_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  
+}
 
+.submit_button Button{
+  height: 45px;
+  width: 150px;
+}
 .cardbtn{
   font-family: "Inter", sans-serif;
 }
